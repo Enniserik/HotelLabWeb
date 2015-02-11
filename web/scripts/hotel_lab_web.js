@@ -11,7 +11,7 @@ $(document).ready(function () {
     if (activeId === activeUrl) {
         activeId = 0;
     }
-
+  
     $('#' + activeId).addClass("selected");
 
     $('.selectable').click(function () {
@@ -68,7 +68,7 @@ $(document).ready(function () {
         var url = window.location.href;
         var type = url.substring(url.indexOf('=') + 1, url.indexOf('&'));
         var id = url.substring(url.lastIndexOf('=') + 1);
-        if (type === "view" && !$('#hotelForm').hasClass('cleared')) {
+        if ((type === "view" || type === "update") && !$('#hotelForm').hasClass('cleared')) {
             $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=delete&hotel_id=" + id);
             $('#hotelForm').submit();
         } else {
@@ -80,6 +80,7 @@ $(document).ready(function () {
     $('#clearBtn').click(function () {
         $('#hotelForm').addClass('cleared');
         $('.selected').removeClass('selected');
+        $('.selectable').css('background-color', '#ADFF2F');
         $('#name').val('');
         $('#address').val('');
         $('#city').val('');

@@ -40,7 +40,7 @@
                     <tr>
                         <div class="form-group">
                             <td>${hotel.hotelId}</td>
-                            <td class="selectable" id="${hotel.hotelId}">${hotel.hotelName}</td>
+                            <td class="selectable notselected" id="${hotel.hotelId}">${hotel.hotelName}</td>
                         </div>
                     </tr>
                     </c:forEach>
