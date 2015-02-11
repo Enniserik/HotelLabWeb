@@ -11,7 +11,7 @@
 <head>
     <title>Hotel Lab</title>
     <link href="content/bootstrap_cerulean.min.css" rel="stylesheet" />
-    <link href="content/hotel_lab.css" rel="stylesheet" type="text/css"/>
+    <link href="content/hotel_lab.css" rel="stylesheet" type="text/css"/>  
 </head>
 <body>
     
@@ -103,19 +103,19 @@
                 <button type="button" class="btn btn-primary" id="insertBtn">Create New</button>
                 <button type="button" class="btn btn-primary" id="updateBtn">Update</button>
                 <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
+                <button type="button" class="btn btn-primary" id="clearBtn">Clear Form</button>
                 
-                <br>
+                <br><br>
                 <p class="hidden" id="error">Hmm</p>    
             </form>
             
             </div>
         </div>
     </div>
-    
-    
+
     <script src="scripts/jquery-1.10.2.min.js"></script>
     <script src="scripts/jquery.validate.min.js"></script>
-    <script src="scripts/hotel_lab.js" type="text/javascript"></script>
+    <script src="scripts/hotel_lab_web.js" type="text/javascript"></script>
     <script src="scripts/bootstrap.min.js"></script>
     
 </body>

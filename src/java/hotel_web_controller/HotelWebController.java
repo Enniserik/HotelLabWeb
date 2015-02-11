@@ -87,14 +87,20 @@ public class HotelWebController extends HttpServlet {
             hs.updateHotelRecord(id, "postal_code", postal);
             hs.updateHotelRecord(id, "notes", notes);
             
+            hotelInfo = hs.retrieveAllHotels();
+            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("hotel_id")) - 1);
+            request.setAttribute("hotelName", h.getHotelName());
+            request.setAttribute("address", h.getAddress());
+            request.setAttribute("city", h.getCity());
+            request.setAttribute("state", h.getState());
+            request.setAttribute("postal", h.getPostalCode());
+            request.setAttribute("notes", h.getNotes());
+            
         }
         
         hotelInfo = hs.retrieveAllHotels();
         request.setAttribute("hotels", hotelInfo);
-        
-//        /HotelLabWeb/hotelweb?type=update&hotel_id=
-        request.setAttribute("resetAction", "/HotelLabWeb/hotelweb?type=create&hotel_id=0");
-        
+
         RequestDispatcher view =
                 request.getRequestDispatcher(RESULT_PAGE);
         view.forward(request, response);
