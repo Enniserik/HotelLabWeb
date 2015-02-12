@@ -21,3 +21,10 @@ and open the template in the editor.
     color: red;
     
 }
+
+.small_td{
+    color: blue;
+    width: 25px;
+    text-align: right;
+    
+}

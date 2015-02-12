@@ -40,7 +40,7 @@
                     <c:forEach var="hotel" items="${hotels}">
                     <tr>
                         <div class="form-group">
-                            <td>${hotel.hotelId}</td>
+                            <td class="small_td">${hotel.hotelId}</td>
                             <td class="selectable notselected" id="${hotel.hotelId}" arraySpace="<%= i++ %>">${hotel.hotelName}</td>
                         </div>
                     </tr>
@@ -103,7 +103,7 @@
                 </table>
                 <button type="button" class="btn btn-primary" id="insertBtn">Create New</button>
                 <button type="button" class="btn btn-primary" id="updateBtn">Update</button>
-                <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
+                <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
                 <button type="button" class="btn btn-primary" id="clearBtn">Clear Form</button>
                 
                 <br><br>
