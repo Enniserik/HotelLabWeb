@@ -36,11 +36,12 @@
                             <td>Name</td>
                         </div>
                     </tr>
+                    <% int i = 0; %>
                     <c:forEach var="hotel" items="${hotels}">
                     <tr>
                         <div class="form-group">
                             <td>${hotel.hotelId}</td>
-                            <td class="selectable notselected" id="${hotel.hotelId}">${hotel.hotelName}</td>
+                            <td class="selectable notselected" id="${hotel.hotelId}" arraySpace="<%= i++ %>">${hotel.hotelName}</td>
                         </div>
                     </tr>
                     </c:forEach>

@@ -43,11 +43,11 @@ public class HotelWebController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HotelService hs = new HotelService();
-        List<Hotel> hotelInfo = hs.retrieveAllHotels();
+        List<Hotel> hotelInfo = hs.retrieveAllHotels();  
         
         if(request.getParameter("type").equals("view")){
             
-            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("hotel_id")) - 1);
+            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("arraySpace")));
             request.setAttribute("hotelName", h.getHotelName());
             request.setAttribute("address", h.getAddress());
             request.setAttribute("city", h.getCity());
@@ -57,7 +57,8 @@ public class HotelWebController extends HttpServlet {
             
         } else if(request.getParameter("type").equals("delete")){
             
-            hs.deleteHotelRecord(Integer.parseInt(request.getParameter("hotel_id")));
+            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("arraySpace")));
+            hs.deleteHotelRecord(h.getHotelId());
             
         } else if(request.getParameter("type").equals("create")){
             
@@ -88,7 +89,7 @@ public class HotelWebController extends HttpServlet {
             hs.updateHotelRecord(id, "notes", notes);
             
             hotelInfo = hs.retrieveAllHotels();
-            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("hotel_id")) - 1);
+            Hotel h = hotelInfo.get(Integer.parseInt(request.getParameter("arraySpace")));
             request.setAttribute("hotelName", h.getHotelName());
             request.setAttribute("address", h.getAddress());
             request.setAttribute("city", h.getCity());

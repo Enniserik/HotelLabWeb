@@ -7,16 +7,17 @@
 $(document).ready(function () {
 
     var activeUrl = window.location.href;
-    var activeId = activeUrl.substring(activeUrl.lastIndexOf('=') + 1);
+    var activeId = activeUrl.substring(activeUrl.lastIndexOf('id='), (activeUrl.lastIndexOf('id=') + 4));
+    activeId = activeId.substring(3, 4);
     if (activeId === activeUrl) {
         activeId = 0;
-    }
-  
+    };
+    
     $('#' + activeId).addClass("selected");
 
     $('.selectable').click(function () {
         var id = $(this).attr('id');
-        $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=view&hotel_id=" + id);
+        $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=view&hotel_id=" + id + "&arraySpace=" + $(this).attr("arraySpace"));
         $('#hotelForm').submit();
     });
 
@@ -54,9 +55,10 @@ $(document).ready(function () {
     $('#updateBtn').click(function () {
         var url = window.location.href;
         var type = url.substring(url.indexOf('=') + 1, url.indexOf('&'));
-        var id = url.substring(url.lastIndexOf('=') + 1);
+        var id = url.substring(url.lastIndexOf('id='), (url.lastIndexOf('id=') + 4));
+        id = id.substring(3, 4);
         if (type === "view" && !$('#hotelForm').hasClass('cleared')) {
-            $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=update&hotel_id=" + id);
+            $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=update&hotel_id=" + id + "&arraySpace=" + $('#' + id).attr("arraySpace"));
             $('#hotelForm').submit();
         } else {
             $('#error').removeClass('hidden');
@@ -67,9 +69,10 @@ $(document).ready(function () {
     $('#deleteBtn').click(function () {
         var url = window.location.href;
         var type = url.substring(url.indexOf('=') + 1, url.indexOf('&'));
-        var id = url.substring(url.lastIndexOf('=') + 1);
+        var id = url.substring(url.lastIndexOf('id='), (url.lastIndexOf('id=') + 4));
+        id = id.substring(3, 4);
         if ((type === "view" || type === "update") && !$('#hotelForm').hasClass('cleared')) {
-            $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=delete&hotel_id=" + id);
+            $('#hotelForm').attr('action', "/HotelLabWeb/hotelweb?type=delete&hotel_id=" + id + "&arraySpace=" + $('#' + id).attr("arraySpace"));
             $('#hotelForm').submit();
         } else {
             $('#error').removeClass('hidden');
